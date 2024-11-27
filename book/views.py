@@ -1,20 +1,16 @@
 from django.shortcuts import render
 
-# Create your views here.
-
 from django.views.decorators.csrf import csrf_exempt
 
 from rest_framework.parsers import JSONParser
 
-
-
-from book.models import Book,Employee,MaritalStatus,PaymentMethod,Department,Function,Customer,BookStorage,Sale,Condition,Rent
-
-
-
-from book.api.serializers import BookSerializer, serializers
-
 from django.http.response import JsonResponse
+
+from book.models import Book, BookStorage
+
+from book.api.serializers import BookSerializer
+
+
 
 @csrf_exempt
 def bookApi(request, id=0):
@@ -30,7 +26,8 @@ def bookApi(request, id=0):
             book_serializer.save()
             return JsonResponse("Process realized with success!", safe=False)
         return JsonResponse("Process not realized!", safe=False)
-    
+
+    """
     elif request.method=='PUT':
         book_data = JSONParser().parse(request)
         book = Book.objects.get(book_id=book_data["book_id"])
@@ -44,3 +41,4 @@ def bookApi(request, id=0):
         book = Book.objects.get(book_id=id)
         book.delete()
         return JsonResponse("Book deleted with success!", safe=False)
+"""

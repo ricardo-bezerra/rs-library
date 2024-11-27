@@ -14,6 +14,8 @@ from django.urls import path, include, re_path as url
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^', include('book.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-# url(r'^', include('book.urls')),
+    url(r'^', include('customer.urls')),
+    url(r'^', include('employee.urls')),
+    url(r'^', include('rent.urls')),
+    url(r'^', include('sale.urls'))
+    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

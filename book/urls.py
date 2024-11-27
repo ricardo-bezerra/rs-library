@@ -3,8 +3,8 @@ from book import views
 
 
 urlpatterns = [
-    url(r'book/', views.bookApi),
+    url(r'^book/$', views.bookApi),
+    url(r'^book/([0-9]+)$', views.bookApi),
 ]
 
-# url(r'^book/$', views.bookApi),
-# url(r'^book/([0-9]+)$', views.bookApi),
+# url(r'book/', views.bookApi),
